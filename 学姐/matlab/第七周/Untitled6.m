@@ -1,0 +1,10 @@
+clear
+clc
+clf
+t0=0;
+tf=3*pi;
+x0=[0;0];
+[t,x]=ode23('exf',[t0,tf],x0)
+y=x(:,1);
+y2=-1/2*(-2*pi-2+t.^2)/pi-(pi+1)/pi*cos(t);
+plot(t,y,'-',t,y2,'o')

@@ -1,0 +1,22 @@
+clear
+clc
+clf
+%画三维曲面z=5-x^2-y^2和平面z=3的交线
+%z=5-x^2-y^2
+t=-2:0.1:2;
+[x,y]=meshgrid(t);
+z1=5-x.^2-y.^2;
+subplot(1,3,1),
+mesh(x,y,z1)
+title('z=5-x^2-y^2')
+%平面z=3
+z2=3*ones(size(x));
+subplot(1,3,2),
+mesh(x,y,z2),
+title('z=3')
+%交线
+r0=abs(z1-z2)<0.1;
+zz=r0.*z2; yy=r0.*y; xx=r0.*x;
+subplot(1,3,3),
+plot3(xx(r0~=0),yy(r0~=0),zz(r0~=0),'x'),
+title('交线')

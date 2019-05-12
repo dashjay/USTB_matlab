@@ -1,0 +1,12 @@
+%º¯Êı¾ØÕó»¯
+function ss=MR2(x,N)
+if(nargin<2)
+    N=20;
+end
+ss=zeros(size(x));
+size_x=size(x);
+for i=1:size_x(1)
+    for j=1:size_x(2)
+        ss(i,j)=MR(x(i,j),N);
+    end
+end
